@@ -1,8 +1,10 @@
 # AquaGroup
 
-Student project "AquaGroup", company that builds swimming pools.
+Student project "AquaGroup", company that builds and owns public swimming pools.
 
-Developed with Spring MVC and MySQL database with Login/Registration and other CRUD functions.
+Developed with Spring MVC and MySQL database with Login/Registration functionality (using Spring Security).
+
+Includes simple CRUD operations for adding, removing and listing pools, categories, appointments and etc.
 
 
 Created by: Milos Komlenic
