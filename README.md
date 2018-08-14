@@ -1,6 +1,6 @@
 # AquaGroup
 
-Student project "AquaGroup", company that builds and owns public swimming pools.
+Student project "AquaGroup", company that builds swimming pools.
 
 Developed with Spring MVC and MySQL database with Login/Registration functionality (using Spring Security).
 
