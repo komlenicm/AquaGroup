@@ -47,6 +47,9 @@
                 </form:select>
             </div>
             <div class="form-group">
+                <form:hidden path="idTermin" />
+            </div>
+            <div class="form-group">
                 <form:label path="vremeOd">Vreme od</form:label>
                 <form:input type="text" id="vremeOd" class="form-control" placeholder="Unesite u formatu HHMMSS" path="vremeOd" />
             </div>

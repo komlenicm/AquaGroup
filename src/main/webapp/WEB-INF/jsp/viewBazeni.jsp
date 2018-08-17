@@ -17,7 +17,8 @@
                 <th>Cena ulaznice</th>
                 <th>Opis</th>
                 <th>Radno Vreme</th>
-                <th>Opcije</th>
+                <th>Izmena</th>
+                <th>Brisanje</th>
             </tr>
         </thead>
         <tbody> 
@@ -28,6 +29,7 @@
                     <td>${bazen.cenaUlaznice}</td>
                     <td>${bazen.opis}</td>
                     <td>${bazen.radnoVreme}</td>
+                    <td><a href="<c:url value='/editBazen/${bazen.idBazen}' />">Izmeni</a></td>
                     <td><a href="<c:url value='/deleteBazen/${bazen.idBazen}' />">Obrisi</a></td>
                 </tr>
             </c:forEach>

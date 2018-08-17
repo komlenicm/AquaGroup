@@ -17,6 +17,9 @@
             <% String success = (String) request.getAttribute("successMsg");%>
             <%= (success != null) ? "<div class=\"alert alert-success\">" + success + "</div>" : ""%>
             <div class="form-group">
+                <form:hidden path="idKategorijaBazena" />
+            </div>
+            <div class="form-group">
                 <form:label path="nazivKategorija">Naziv kategorije bazena</form:label>
                 <form:input type="nazivKategorija" class="form-control" id="nazivKategorija" placeholder="Unesite naziv kategorije" path="nazivKategorija" />
             </div>

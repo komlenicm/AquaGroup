@@ -89,6 +89,25 @@ public class CRUDController {
         return model;
     }
     
+    @RequestMapping(value = "/addKategorijaBazena", method = RequestMethod.GET)
+    public String addKategorijaBazena(Model model) {
+        model.addAttribute("kategorijaBazena", new KategorijaBazena());
+        return "addKategorijaBazena";
+    }
+    
+    @RequestMapping(value = "/addKategorijaBazena", method = RequestMethod.POST)
+    public ModelAndView addKategorijaBazena(@ModelAttribute("kategorijaBazena") KategorijaBazena kb,ModelAndView model) {
+        
+        if(kb.getIdKategorijaBazena() == null){
+            kb = aquaGroupService.addKategorijaBazena(kb);
+        }else{
+            aquaGroupService.editKategorijaBazena(kb);
+        }
+
+        model.addObject("successMsg", "Kategorija bazena je uspesno dodata!");
+        return model;
+    }
+    
     
     @RequestMapping(value = "/viewKategorijeBazena", method = RequestMethod.GET)
     public ModelAndView getKategorijeBazena(ModelAndView model) {
@@ -103,6 +122,14 @@ public class CRUDController {
         model.addAttribute("kategorijaBazena", kb);
         return "addKategorijaBazena";
     }
+    
+    @RequestMapping(value = "/editKategorijaBazena", method = RequestMethod.POST)
+    public ModelAndView editKategorijaBazena(@ModelAttribute("idKategorijaBazena") KategorijaBazena kb, ModelAndView model) {
+        aquaGroupService.editKategorijaBazena(kb);
+        model.addObject("successMsg", "Kategorija bazena je uspesno izmenjena.");
+        return model;
+    }
+    
     
     @RequestMapping(value = "/deleteKategorijaBazena/{idKategorijaBazena}", method = RequestMethod.GET)
     public String deleteKategorijaBazena(@PathVariable("idKategorijaBazena") int id, HttpServletRequest request) {
@@ -130,7 +157,13 @@ public class CRUDController {
 
     @RequestMapping(value = "/addBazen", method = RequestMethod.POST)
     public ModelAndView addBazen(@ModelAttribute("bazen") Bazen b, ModelAndView model) {
-        b = aquaGroupService.addBazen(b);
+        
+        if(b.getIdBazen() == null){
+            b = aquaGroupService.addBazen(b);
+        }else{
+            aquaGroupService.editBazen(b);
+        }
+        
         model.addObject("kategorijeBazena", aquaGroupService.getKategorijeBazena());
         model.addObject("successMsg", "Bazen je uspesno dodat!");
         model.addObject("bazen", b);
@@ -141,6 +174,21 @@ public class CRUDController {
     public ModelAndView getBazeni(ModelAndView model) {
         model.addObject("bazeni", aquaGroupService.getBazeni());
         model.addObject("bazen", new Bazen());
+        return model;
+    }
+    
+    @RequestMapping(value = "/editBazen/{idBazen}", method = RequestMethod.GET)
+    public String editBazen(@PathVariable("idBazen") int id, Model model) {
+        Bazen bazen = aquaGroupService.getBazenById(id);
+        model.addAttribute("kategorijeBazena", aquaGroupService.getKategorijeBazena());
+        model.addAttribute("bazen", bazen);
+        return "addBazen";
+    }
+    
+    @RequestMapping(value = "/editBazen", method = RequestMethod.POST)
+    public ModelAndView editBazen(@ModelAttribute("idBazen") Bazen bazen, ModelAndView model) {
+        aquaGroupService.editBazen(bazen);
+        model.addObject("successMsg", "Bazen je uspesno izmenjen.");
         return model;
     }
     
@@ -202,6 +250,22 @@ public class CRUDController {
         model.addObject("termin", new Termin());
         return model;
     }
+    
+        @RequestMapping(value = "/editTermin/{idTermin}", method = RequestMethod.GET)
+    public String editTermin(@PathVariable("idTermin") int id, Model model) {
+        Termin termin = aquaGroupService.getTerminById(id);
+        model.addAttribute("bazeni", aquaGroupService.getBazeni());
+        model.addAttribute("termin", termin);
+        return "addTermin";
+    }
+    
+    @RequestMapping(value = "/editTermin", method = RequestMethod.POST)
+    public ModelAndView editTermin(@ModelAttribute("idTermin") Termin termin, ModelAndView model) {
+        aquaGroupService.editTermin(termin);
+        model.addObject("successMsg", "Termin je uspesno izmenjen.");
+        return model;
+    }
+    
     
     @RequestMapping(value = "/deleteTermin/{idTermin}", method = RequestMethod.GET)
     public String deleteTermin(@PathVariable("idTermin") int id, HttpServletRequest request) {

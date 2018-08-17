@@ -13,13 +13,15 @@
         <thead>
             <tr>
                 <th>Naziv kategorije</th>
-                <th>Opcije</th>
+                <th>Izmena</th>
+                <th>Brisanje</th>
             </tr>
         </thead>
         <tbody> 
             <c:forEach items="${kategorijeBazena}" var="kategorijaBazena">
                 <tr>
                     <td>${kategorijaBazena.nazivKategorija}</td>
+                    <td><a href="<c:url value='/editKategorijaBazena/${kategorijaBazena.idKategorijaBazena}' />">Izmeni</a></td>
                     <td><a href="<c:url value='/deleteKategorijaBazena/${kategorijaBazena.idKategorijaBazena}' />">Obrisi</a></td>
                 </tr>
             </c:forEach>

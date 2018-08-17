@@ -35,6 +35,8 @@ public interface AquaGroupService {
     
     public void deleteKategorijaBazena(KategorijaBazena kategorijaBazena);
     
+    public void editBazen(Bazen bazen);
+    
     public void deleteBazen(Bazen bazen);
     
     public List<Termin> getTermini();

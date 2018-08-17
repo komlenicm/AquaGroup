@@ -23,6 +23,9 @@
                 </form:select>
             </div>
             <div class="form-group">
+                <form:hidden path="idBazen" />
+            </div>
+            <div class="form-group">
                 <form:label path="imeBazen">Ime bazena</form:label>
                 <form:input type="imeBazen" id="imeBazen" class="form-control" placeholder="Ime bazena" path="imeBazen" />
             </div>

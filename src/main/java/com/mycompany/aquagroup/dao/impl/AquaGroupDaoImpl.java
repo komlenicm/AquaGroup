@@ -107,7 +107,7 @@ public class AquaGroupDaoImpl implements AquaGroupDao{
     @Override
     @Transactional
     public void editKategorijaBazena(KategorijaBazena kategorijaBazena) {
-        getSession().saveOrUpdate(kategorijaBazena);
+        getSession().update(kategorijaBazena);
     }
 
     @Override
@@ -151,7 +151,7 @@ public class AquaGroupDaoImpl implements AquaGroupDao{
     @Override
     @Transactional
     public void editTermin(Termin termin) {
-        getSession().saveOrUpdate(termin);
+        getSession().update(termin);
     }
 
     @Override
@@ -209,6 +209,12 @@ public class AquaGroupDaoImpl implements AquaGroupDao{
     public Kontakt getKontaktPorukaById(int id) {
         Kontakt kontakt = (Kontakt) getSession().createCriteria(Kontakt.class).add(Restrictions.eq("idKontakt", id)).uniqueResult();
         return kontakt;
+    }
+
+    @Override
+    @Transactional
+    public void editBazen(Bazen bazen) {
+        getSession().update(bazen);
     }
     
 }

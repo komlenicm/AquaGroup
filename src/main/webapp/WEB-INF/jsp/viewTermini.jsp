@@ -17,7 +17,8 @@
                 <th>Naziv bazena</th>
                 <th>Vreme od</th>
                 <th>Vreme do</th>
-                <th>Opcije</th>
+                <th>Izmena</th>
+                <th>Brisanje</th>
             </tr>
         </thead>
         <tbody> 
@@ -27,7 +28,8 @@
                     <td>${termin.bazen.imeBazen}</td>
                     <td>${termin.vremeOd}</td>
                     <td>${termin.vremeDo}</td>
-                    <td><a href="<c:url value='/deleteTermin/${termin.idTermin}' />">Izbrisi</a></td>
+                    <td><a href="<c:url value='/editTermin/${termin.idTermin}' />">Izmeni</a></td>
+                    <td><a href="<c:url value='/deleteTermin/${termin.idTermin}' />">Obrisi</a></td>
                 </tr>
             </c:forEach>
         </tbody>

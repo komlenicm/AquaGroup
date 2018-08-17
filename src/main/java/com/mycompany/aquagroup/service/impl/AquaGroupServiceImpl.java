@@ -154,6 +154,11 @@ public class AquaGroupServiceImpl implements AquaGroupService{
     public Kontakt getKontaktPorukaById(int id) {
         return aquaGroupDao.getKontaktPorukaById(id);
     }
+
+    @Override
+    public void editBazen(Bazen bazen) {
+        aquaGroupDao.editBazen(bazen);
+    }
     
     
 }
